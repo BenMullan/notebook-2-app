@@ -40,10 +40,10 @@ Simply download the resultant app-code package...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-0.png?raw=true" width="80%" /><br/>
 
 ...to instantly run the standalone app locally...
-<br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-1.png?raw=true" width="100%" /><br/>
+<br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-1.png?raw=true" width="100%" />
 
 ...or deploy it from a dev-ops' repository to an Azure App-Service, using the generated `deploy.yml`.
-<br/><br/>
+<br/><br/><br/>
 
 
 ## Business context
