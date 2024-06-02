@@ -3,7 +3,7 @@
 
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
-It provides a user-friendly pipeline to automate the transformation of non-linear, loosely-structured Python _notebook-style_ code,
+This software provides a user-friendly pipeline to automate the transformation of non-linear, loosely-structured Python _notebook-style_ code,
 into maintainable, modular, robust, and efficient _applicaiton-code_; bridging the first two stages above.
 
 This includes...
@@ -14,7 +14,7 @@ This includes...
 - Homogonising identifiers' naming conventions
 - Freedom to insert custom transformations!
 
-## Screenshots
+## Walk-through
 
 After entering a username...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-full-page.png?raw=true" /><br/>
@@ -28,7 +28,7 @@ After entering a username...
 Choose which cells contain code needed for the application...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-2-0.png?raw=true" /><br/>
 
-...and `notebook-2-app` automatically suggests changes to make robust application-code...
+...and `notebook-2-app` automatically suggests changes to make **secure** & **robust** application-code...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-0.png?raw=true" /><br/>
 
 ...plus feedback on code quality.
@@ -41,6 +41,8 @@ Simply download the resultant app-code package...
 <br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-1.png?raw=true" /><br/>
 
 ...or deploy it from a dev-ops' repository to an Azure App-Service, using the generated `deploy.yml`.
+
+`notebook-2-app` integrates into a **data-science deployment** workflow, like this...
 <br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-process.png?raw=true" /><br/>
 
 ## To use this software...
