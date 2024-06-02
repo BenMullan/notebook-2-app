@@ -1,10 +1,10 @@
 # `notebook-2-app`...
-...is an idiot-proof web-based databricks-notebook to web-application conversion platform.
+...is a fool-proof web-based databricks-notebook to web-application conversion platform.
 
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
-This software provides a user-friendly pipeline to automate the transformation of non-linear, loosely-structured Python _notebook-style_ code,
-into maintainable, modular, robust, and efficient _applicaiton-code_; bridging the first two stages above.
+To bridge the first two of these stages ↑, notebook-2-app provides a user-friendly pipeline to automate the transformation of non-linear,
+loosely-structured Python _notebook-style_ code, into maintainable, modular, robust, and efficient _applicaiton-code_.
 
 This includes...
 - Replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
@@ -12,7 +12,9 @@ This includes...
 - Suggesting the insertion of proper documentation & commentry within the code
 - Moving pip dependancies into a centralised `requirements.txt` file
 - Homogonising identifiers' naming conventions
-- Freedom to insert custom transformations!
+- (Freedom to insert custom transformations!)
+
+
 
 ## Walk-through
 
@@ -42,8 +44,10 @@ Simply download the resultant app-code package...
 
 ...or deploy it from a dev-ops' repository to an Azure App-Service, using the generated `deploy.yml`.
 
-`notebook-2-app` integrates into a **data-science deployment** workflow, like this...
+`notebook-2-app` might integrate into a **data-science deployment** workflow, like this...
 <br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-process.png?raw=true" /><br/>
+
+
 
 ## To use this software...
 - Download [a `zip` of this repository](https://github.com/BenMullan/notebook-2-app/archive/refs/heads/main.zip)
