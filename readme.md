@@ -1,14 +1,14 @@
 # `notebook-2-app`...
-...is a foolproof web-based databricks-notebook to web-application conversion platform.
+...is a foolproof web-based **databricks-notebook** to **web-application** conversion platform.
 
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
-To bridge the first two ↑ of these stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
+Bridging the first two ↑ of these stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
 loosely-structured Python **notebook-style code**, into maintainable, modular, robust, and efficient **applicaiton-code**.
 
 This includes...
-- Replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
-- Removing _secrets_ (e.g. API keys) and placing them in a seperate `.env` file
+- Specific notebook-only code substitutions, e.g. replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
+- Identifying & removing _secrets_ (e.g. API keys) and placing them in a seperate `.env` file
 - Suggesting the insertion of proper documentation & commentry within the code
 - Moving pip dependancies into a centralised `requirements.txt` file
 - Homogonising identifiers' naming conventions
@@ -27,10 +27,10 @@ After entering a username...
 ...allowing selection of a python notebook directly from the workspace.
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-2.png?raw=true" /><br/>
 
-Choose which cells contain code needed for the application...
+Tick cells containing code needed for the application...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-2-0.png?raw=true" /><br/>
 
-...and `notebook-2-app` automatically suggests changes to make **secure** & **robust** application-code...
+...and `notebook-2-app` automatically suggests changes, to make **secure** & **robust** application-code...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-0.png?raw=true" /><br/>
 
 ...plus feedback on code quality.
