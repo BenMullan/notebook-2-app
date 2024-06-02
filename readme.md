@@ -1,10 +1,10 @@
 # `notebook-2-app`...
-...is a fool-proof web-based databricks-notebook to web-application conversion platform.
+...is a foolproof web-based databricks-notebook to web-application conversion platform.
 
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
-To bridge the first two of these stages ↑, notebook-2-app provides a user-friendly pipeline to automate the transformation of non-linear,
-loosely-structured Python _notebook-style_ code, into maintainable, modular, robust, and efficient _applicaiton-code_.
+To bridge the first two ↑ of these stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
+loosely-structured Python **notebook-style code**, into maintainable, modular, robust, and efficient **applicaiton-code**.
 
 This includes...
 - Replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
