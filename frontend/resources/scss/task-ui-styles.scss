@@ -1,0 +1,146 @@
+/*
+	File:		task-ui-styles.scss - Classes used by task-ui-* XML elements
+	Transpile:	npx sass task-ui-styles.css
+	Author:		Ben Mullan 2024 for ((redacted)) 
+*/
+
+@import "./main.scss";
+
+#tui-1-databricks-auth {
+	margin-top:			1.5rem;
+}
+
+#tui-1-workspace-contents-listing {
+	list-style-type:	none;
+	text-align:			left;
+}
+
+.tui-1-workspace-object {
+	margin-bottom:		0.3em;
+	& > a				{ text-decoration: none; }
+}
+
+.tui-1-workspace-dir-breadcrumbs {
+	margin-bottom:		1.2em;
+	margin-top:			1.0em;
+	& > span:first-child > a { text-decoration: none; }
+}
+
+
+
+
+
+
+
+
+#tui-2-notebook-cells-list {
+	
+	list-style-type:	none;
+	text-align:			left;
+	padding-left:		0px;
+	
+	li + li				{ margin-top: 10px; }
+	
+	& input[type=checkbox] {
+		transform:		scale(1.2);
+	}
+	
+}
+
+.tui-2-notebook-cell {
+	
+	white-space:		pre-line;
+	text-wrap:			nowrap;
+	
+	display:			inline-block;
+	overflow:			clip;
+	background-color:	$c-off-white;
+	
+	border-width:		1px;
+	border-style:		solid;
+	border-radius:		3px;
+	border-color:		$c-off-grey;
+	
+	padding: {
+		top:			0.5rem;
+		bottom:			0.5rem;
+		left:			0.5rem;
+	}
+	
+	& > code {
+		
+		display:			inline !important;
+		background-color:	#00000000;
+		
+		@each $side in top, left, bottom, right {
+			margin-#{$side}:	0px !important;
+			padding-#{$side}:	0px !important;
+		}
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+#tui-3-sidebar-and-editor-container {
+	display:				grid;
+	grid-template-columns:	[left-edge] 1fr [sidebar-to-editor-seperator] 2fr [right-edge];
+	grid-template-rows:		[top-edge] 1fr [bottom-edge];
+	align-content:			space-between;
+	column-gap:				10px;
+}
+
+#tui-3-code-analytics-sidebar {
+	
+	height:				21rem;
+	overflow-y:			auto;
+	justify-self:		stretch;
+	
+	grid: {
+		column-start:	left-edge;
+		column-end:		sidebar-to-editor-seperator;
+		row-start:		top-edge;
+		row-end:		bottom-edge;
+	}
+	
+}
+
+#tui-3-code-editor {
+	
+	height:				24rem;
+	text-align:			left;
+	
+	border-width:		1px;
+	border-style:		solid;
+	border-radius:		3px;
+	border-color:		$c-off-grey;
+	
+	justify-self:		stretch;
+	
+	grid: {
+		column-start:	sidebar-to-editor-seperator;
+		column-end:		right-edge;
+		row-start:		top-edge;
+		row-end:		bottom-edge;
+	}
+	
+	& .monaco-editor	{ --vscode-focusBorder: #00000000; }
+	
+}
+
+.tui-3-editor-text-highlighted {
+	background:			#ffff00;
+	font-weight:		900;
+	text-decoration:	underline;
+}
+
+
+#tui-3-code-stats {
+	text-align:			left;
+}

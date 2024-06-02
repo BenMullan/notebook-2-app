@@ -1,0 +1,85 @@
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# To-do: Replace fields ___LOOKING_LIKE_THIS___ with appropriate values.
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+jobs:
+- job: Validation
+  pool:
+	  name: ___POOL_NAME___
+  displayName: Validation
+
+  steps:
+	  - task: UsePythonVersion@0
+		displayName: Set python version
+		inputs:
+			versionSpec: 3.9
+
+	  - bash: |
+			python3.9 -m pip install plotly==5.19.0 dash==2.15.0 dash-core-components==2.0.0 dash-html-components==2.0.0 dash-table==5.0.0
+		displayName: Install development dependencies
+
+	  - bash: |
+		  python3.9 -m pip install -r ./requirements.txt
+		workingDirectory: $(Build.SourcesDirectory)/
+		displayName: Install dependencies
+
+- job: Publishing
+  displayName: Publishing
+  dependsOn: Validation
+  pool:
+	  name: ___POOL_NAME___
+
+  steps:
+	  - task: CopyFiles@2
+		displayName: Copy build files
+		inputs:
+			SourceFolder: $(Build.SourcesDirectory)
+			Contents: |
+				/**
+			TargetFolder: $(Build.ArtifactStagingDirectory)
+			CleanTargetFolder: true
+			OverWrite: true
+
+	  - task: PublishBuildArtifacts@1
+		displayName: Publish artifact
+		inputs:
+			pathtoPublish: $(Build.ArtifactStagingDirectory)
+			artifactName: drop
+
+- deployment: Deployment
+  dependsOn: Publishing
+  pool:
+	  name: ___POOL_NAME___
+  displayName: Deployment
+  environment: ___ENVIRONMENT_NAME___
+  strategy:
+	  runOnce:
+		  deploy:
+			  steps:
+
+				  - task: DownloadBuildArtifacts@0
+					displayName: Download artifact
+					inputs:
+						buildType: current
+						buildVersionToDownload: latest
+						downloadType: single
+						artifactName: drop
+						downloadPath: $(Build.SourcesDirectory)
+
+				  - task: ArchiveFiles@2
+					displayName: Archive web-app files
+					inputs:
+						rootFolderOrFile: $(Build.SourcesDirectory)/drop/
+						includeRootFolder: false
+						replaceExistingArchive: true
+						archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+
+				  - task: AzureWebApp@1
+					displayName: Deploy to web-app
+					inputs:
+						AzureSubscription: '___AZURE_SUBSCRIPTION___'
+						appType: webAppLinux
+						appName: '___TARGET_APPSERVICE_NAME___'
+						package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+	

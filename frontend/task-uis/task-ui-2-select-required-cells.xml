@@ -1,0 +1,24 @@
+<!--
+	File:	Slot-in "task-ui" element, mounted in `#task-ui-mountpoint` of index.xhmtl
+	Author:	Ben Mullan 2024 for ((redacted)) 
+-->
+
+<div class="task-ui-outer-div" data-task-number="2" data-task-title="Required Cells...">
+	
+	<script src="/resources/python-syntax-highlighting/highlight.min.js" />
+	<link rel="stylesheet" href="/resources/python-syntax-highlighting/vs.min.css" />
+	
+	<div id="task-ui-content-div" style="display: none;">
+		
+		<p class="off-grey">Which cells contain code needed for the app?</p>
+		
+		<ol id="tui-2-notebook-cells-list" />
+		<script>tui_2_show_notebook_cells();</script>
+		
+	</div>
+	
+	<button id="tui-2-next-button" title="Generate app-code..." onclick="tui_2_set_selected_cells();" class="next-task-button btn btn-primary" style="display: none;">
+		<i class="bi bi-arrow-right-circle" />
+	</button>
+	
+</div>

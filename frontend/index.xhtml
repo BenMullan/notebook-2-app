@@ -1,0 +1,75 @@
+<!--
+	File:	index.xhtml - Main page for `notebook-2-app` pipeline application
+	Author:	Ben Mullan 2024 for ((redacted)) 
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		
+		<title>notebook-2-app</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="/resources/css/bootstrap-icons.min.css" />
+		<link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/resources/css/task-ui-styles.css" />
+		<link rel="stylesheet" href="/resources/css/main.css" />
+		
+		<script src="/resources/js/main.js" />
+		<script src="/resources/js/utilities.js" />
+		<script src="/resources/js/task-ui-functions.js" />
+		<script src="/resources/js/jquery-3.7.1.min.js" />
+		<script src="/resources/js/bootstrap.bundle.min.js" />
+		<script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js" />
+		
+	</head>
+	<body class="p-3 container text-center" onload="window.task_uis.load_next_task();">
+		
+		<header class="off-grey row">
+			<h2>🏃‍ notebook-2-app</h2>
+			<h6>Automated databricks-notebook deployment pipeline</h6>
+		</header>
+		
+		<main class="row">
+			
+			<div id="error-msg" class="alert alert-danger mx-auto my-4" style="display: none;" role="alert" />
+			
+			<section class="task-box off-black mt-auto mb-3 mx-auto shadow-lg">
+				
+				<h3 id="task-box-title" class="mt-4 mb-1">&nbsp;</h3>
+				<hr class="task-box-title-seperator" />
+				
+				<!-- Gets hidden, when a task-ui element is present below -->
+				<div id="task-box-loading-indicator" class="my-3">
+					<img src="/resources/images/task-box-loading.gif" alt="Loading..." />
+					<p id="task-box-loading-text" class="off-grey">Loading Task UI...</p>
+				</div>
+				
+				<!-- Gets shown, when a slot-in `task-ui-*` element is mounted here -->
+				<div id="task-ui-mountpoint" style="display: none;" />
+				
+				<!--
+					Task-UI Components:
+						- select-notebook		(authenticate \w databricks; list workspace contents; choose target notebook)
+						- select-required-cells	(download notebook contents; parse into cells; tick desired cells for app)
+						- generate-app-code		(put required cells into main.py; app-code-substitutions; run through `black`;
+												 run `wily` metrics; generate requirements.txt; generate dev-ops' deployment YAML file)
+						- download-app-code		(provide href to a .zip of the app-code)
+				-->
+				
+			</section>
+			
+			<ol id="task-box-progress-bubbles">
+				<li>1</li>&mdash;<li>2</li>&mdash;<li>3</li>&mdash;<li>4</li>
+			</ol>
+			
+		</main>
+		
+		<footer class="off-grey row">
+			<span>© Ben Mullan 2024</span>
+		</footer>
+		
+	</body>
+</html>

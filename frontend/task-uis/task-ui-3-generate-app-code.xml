@@ -1,0 +1,23 @@
+<!--
+	File:	Slot-in "task-ui" element, mounted in `#task-ui-mountpoint` of index.xhmtl
+	Author:	Ben Mullan 2024 for ((redacted)) 
+-->
+
+<div class="task-ui-outer-div" data-task-number="3" data-task-title="Review App-code...">
+	
+	<div id="task-ui-content-div">
+		
+		<div id="tui-3-sidebar-and-editor-container">
+			<div id="tui-3-code-analytics-sidebar" class="accordion" />
+			<div id="tui-3-code-editor" />
+		</div>
+		
+		<script>tui_3_show_initial_app_code();</script>
+		
+	</div>
+	
+	<button id="tui-3-next-button" title="Create deployable app-code package..." onclick="tui_3_submit_edited_app_code();" class="next-task-button btn btn-primary">
+		<i class="bi bi-arrow-right-circle" />
+	</button>
+	
+</div>

@@ -1,0 +1,23 @@
+<!--
+	File:	Slot-in "task-ui" element, mounted in `#task-ui-mountpoint` of index.xhmtl
+	Author:	Ben Mullan 2024 for ((redacted)) 
+-->
+
+<div class="task-ui-outer-div" data-task-number="4" data-task-title="Download App-package">
+	
+	<div id="task-ui-content-div">
+		
+		<p class="off-grey">To download this app-code-package again in the future, save this link...</p>
+		
+		<a href="" id="tui-4-appcode-download-link" target="_blank" class="m-5 pt-5">
+			<figure>
+				<img src="/resources/images/code-package.png" alt="Package icon" height="100" />
+				<b> <figcaption id="tui-4-appcode-package-name-text" /> </b>
+			</figure>
+		</a>
+		
+		<script>tui_4_populate_appcode_download_link_details();</script>
+		
+	</div>
+	
+</div>

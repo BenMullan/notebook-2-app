@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/*
+	File:		main.scss - SASS Stylesheet for `notebook-2-app` pipeline application
+	Transpile:	npx sass main.scss:main.css
+	Author:		Ben Mullan 2024 for ((redacted)) 
+*/
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+/* colours */
+.off-black {
+  color: #4f4f4f;
+}
+
+.off-grey {
+  color: #b3b3b3;
+}
+
+body {
+  font-family: "Cabin", sans-serif;
+  font-weight: 400;
+  /* Vertical distribution
+  of header/main/footer */
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.accordion-body {
+  background-color: #f0f0f0;
+}
+
+.accordion-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#error-msg {
+  white-space: pre;
+  text-wrap: pretty !important;
+}
+#error-msg:before {
+  content: "⚠\a";
+}
+
+.task-box {
+  height: 24rem;
+  min-height: 24rem;
+  max-height: 38rem;
+  width: 40rem;
+  min-width: 40rem;
+  max-width: 65rem;
+  border-width: 1px;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #3385ff;
+  --bs-border-opacity: .5;
+  background-color: #fffffa;
+  transition: width 1s, height 1s;
+}
+
+.task-box-title-seperator {
+  margin: 0% 18%;
+  border-top: 2px solid #3385ff;
+}
+
+#task-box-progress-bubbles {
+  list-style-type: none;
+  color: #3385ff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+#task-box-progress-bubbles li {
+  list-style-type: none;
+  display: inline-block;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: #3385ff;
+  background-color: #cce1ff;
+  color: #4f4f4f;
+  /* font-weight:		600; */
+  font-size: 1rem;
+}
+
+#task-ui-mountpoint {
+  height: 73%;
+}
+
+.task-ui-outer-div {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: [left-edge] 1fr [right-edge];
+  grid-template-rows: [top-edge] 20fr [content-to-button-seperator] auto [bottom-edge];
+  align-content: space-between;
+  row-gap: 10px;
+}
+
+#task-ui-content-div {
+  overflow-y: auto;
+  grid-column-start: left-edge;
+  grid-column-end: right-edge;
+  grid-row-start: top-edge;
+  grid-row-end: content-to-button-seperator;
+}
+
+.next-task-button {
+  justify-self: end;
+  grid-column-start: left-edge;
+  grid-column-end: right-edge;
+  grid-row-start: content-to-button-seperator;
+  grid-row-end: bottom-edge;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/*# sourceMappingURL=main.css.map */

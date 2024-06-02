@@ -1,0 +1,26 @@
+<!--
+	File:	Slot-in "task-ui" element, mounted in `#task-ui-mountpoint` of index.xhmtl
+	Author:	Ben Mullan 2024 for ((redacted)) 
+-->
+
+<div class="task-ui-outer-div" data-task-number="1" data-task-title="Select Notebook...">
+	
+	<div id="task-ui-content-div">
+		
+		<div id="tui-1-databricks-auth">
+			<img src="/resources/images/databricks-logo.png" height="80" alt="Databricks' logo" />
+			<div class="input-group d-inline-flex" style="width: 85%;">
+				<div class="input-group-text off-grey">Databricks Username</div>
+				<input type="text" id="tui-1-databricks-username-textbox" class="form-control" pattern="[A-Za-z0-9._\-]{1,40}" placeholder="eg ben.mullan" value="ben.mullan" />
+			</div>
+		</div>
+		
+		<ul id="tui-1-workspace-contents-listing" style="display: none;" />
+		
+	</div>
+	
+	<button id="tui-1-next-button" title="Load databricks' workspace..." onclick="tui_1_show_workspace_contents();" class="next-task-button btn btn-primary">
+		<i class="bi bi-arrow-right-circle" />
+	</button>
+	
+</div>
