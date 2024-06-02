@@ -22,7 +22,7 @@ After entering a username...
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-full-page.png?raw=true" /><br/>
 
 ...`notebook-2-app` contacts the Databricks' workspace's REST API...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1.png?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1.gif?raw=true" /><br/>
 
 ...allowing selection of a python notebook directly from the workspace.
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-2.png?raw=true" /><br/>
