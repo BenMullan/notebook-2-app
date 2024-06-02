@@ -1,7 +1,7 @@
 # `notebook-2-app`...
 ...is an idiot-proof web-based databricks-notebook to web-application conversion platform.
 
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
 This package provides a user-friendly pipeline to automate changing non-linear, loosely-structured Python _notebook-style_ code,
 into maintainable, modular, robust, and efficient _applicaiton-code_; bridging the first two stages above.
@@ -16,31 +16,31 @@ These transformations include...
 ### Screenshots
 
 After entering a username...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-full-page?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-full-page.png?raw=true" /><br/>
 
 ...`notebook-2-app` contacts the Databricks' workspace's REST API...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1.png?raw=true" /><br/>
 
 ...allowing selection of a python notebook directly from the workspace.
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-2?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-2.png?raw=true" /><br/>
 
 Choose which cells contain code needed for the application...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-2-0?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-2-0.png?raw=true" /><br/>
 
 ...and `notebook-2-app` automatically suggests changes to make robust application-code...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-0?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-0.png?raw=true" /><br/>
 
 ...plus feedback on code quality.
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-2?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-3-2.png?raw=true" /><br/>
 
 Simply download the resultant app-code package...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-0?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-0.png?raw=true" /><br/>
 
 ...to instantly run the standalone app locally...
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-1?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-4-1.png?raw=true" /><br/>
 
 ...or deploy it from a dev-ops' repository to an Azure App-Service, using the generated `deploy.yml`.
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1?raw=true" /><br/>
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-step-1-1.png?raw=true" /><br/>
 
 ### To use this software...
 - Download [a `zip` of this repository](https://github.com/BenMullan/notebook-2-app/archive/refs/heads/main.zip)
