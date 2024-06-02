@@ -3,7 +3,7 @@
 
 <br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" /><br/>
 
-Bridging the first two ↑ of these stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
+Bridging the first two of these ↑ stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
 loosely-structured Python **notebook-style code**, into maintainable, modular, robust, and efficient **applicaiton-code**.
 
 This includes...
@@ -11,7 +11,7 @@ This includes...
 - Identifying & removing _secrets_ (e.g. API keys) and placing them in a seperate `.env` file
 - Suggesting the insertion of proper documentation & commentry within the code
 - Moving pip dependancies into a centralised `requirements.txt` file
-- Homogonising identifiers' naming conventions
+- Homogenising identifiers' naming conventions e.g. to `snake_case`
 - (Freedom to insert custom transformations!)
 
 
@@ -44,6 +44,9 @@ Simply download the resultant app-code package...
 
 ...or deploy it from a dev-ops' repository to an Azure App-Service, using the generated `deploy.yml`.
 
+
+
+## Business context
 `notebook-2-app` might integrate into a **data-science deployment** workflow, like this...
 <br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-process.png?raw=true" /><br/>
 
