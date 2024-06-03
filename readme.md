@@ -48,9 +48,9 @@ Simply download the resultant app-code package...
 
 ## Porting notebook- to app-code
 `notebook-2-app` focuses on three phases of code-conversion...
-- Syntactically; for neatness. <br/> Notebook-code is passed through [black](https://github.com/psf/black) as an initial clean-up.
-- Operationally; for platform-compatibility. <br/> E.g. replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
-- Structurally; for modularity. <br/> Code is seperated into different functions & modules, for maintainability.
+- **Syntactically**; for _neatness_. Notebook-code is passed through [black](https://github.com/psf/black) as an initial clean-up.
+- **Operationally**; for _platform-compatibility_. E.g. replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
+- **Structurally**; for _modularity_. Code is seperated into different functions & modules, for maintainability.
 <br/><br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-code-vs-app-code.png?raw=true" width="100%" />
 <br/><br/><br/>
 
