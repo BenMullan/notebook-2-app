@@ -1,7 +1,7 @@
 # `notebook-2-app`...
 ...is a foolproof web-based **databricks-notebook** to **web-application** conversion platform.
 
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" width="100%" /><br/>
+<img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" width="100%" />
 
 Bridging the first two of these ↑ stages, notebook-2-app provides a _user-friendly_ pipeline to automate the transformation of non-linear,
 loosely-structured Python **notebook-style code**, into maintainable, modular, robust, and efficient **applicaiton-code**.
@@ -16,9 +16,11 @@ This includes...
 
 
 
-# Under the hood
-<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-streamline-process.png?raw=true" width="100%" /><br/>	
+<br/><br/>
+## Under the hood
+<img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-streamline-process.png?raw=true" width="100%" />
 Python notebooks give data scientists the freedom to quickly & loosely build prototypes with a dataset. They aren't - however - conducive  to building modular, robust, input-validating applications. This tool helps data scientists get application-ready code, fast.
+<br/><br/>
 
 
 
@@ -70,4 +72,5 @@ Simply download the resultant app-code package...
 
 
 
+<br/><br/>
 _This is a prototype software product, entirely open to receiving feedback & improvement ideas!_
