@@ -16,6 +16,12 @@ This includes...
 
 
 
+# Under the hood
+<br/><img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/n2a-streamline-process.png?raw=true" width="100%" /><br/>	
+Python notebooks give data scientists the freedom to quickly & loosely build prototypes with a dataset. They aren't - however - conducive  to building modular, robust, input-validating applications. This tool helps data scientists get application-ready code, fast.
+
+
+
 ## Walk-through
 
 After entering a username...
@@ -61,3 +67,7 @@ Simply download the resultant app-code package...
 - Populate /backend/server_code/secrets.py with values for [your Databricks Workspace](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/pat#--azure-databricks-personal-access-tokens-for-workspace-users)
 - Execute `python -m flask --app ./server.py run`
   <br/>(Can use `_debug.cmd` on Windows for local development/testing; runs SASS transpiler & starts server)
+
+
+
+_This is a prototype software product, entirely open to receiving feedback & improvement ideas!_
