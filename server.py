@@ -165,11 +165,11 @@ def api_submit_edited_app_code():
 	
 	try:
 		_subproc_output = server_utils.get_process_output(["pipreqs", _appcode_package_folder]);
-		if not ("Successfully saved requirements file" in _subproc_output): raise Exception(f"Pipreqs dependancies-gathering may have run unsuccessfully. \n Output: {_subproc_output}");
+		if not ("Successfully saved requirements file" in _subproc_output): raise Exception(f"Pipreqs dependencies-gathering may have run unsuccessfully. \n Output: {_subproc_output}");
 	except Exception as _e:
-		print(f"Pipreqs dependancies-gathering encountered an error; {str(_e)}", status=500, mimetype="text/plain");
-		try: open(os.path.join(_appcode_package_folder, "requirements.txt"), "w", encoding="utf-8").write(f"Couldn't automatically generate requirements.txt, because... \n\n {str(e)}");
-		except Exception as _e: return flask.Response(f"`pipreqs` requitements.txt-generation failed for {_appcode_package_folder}, and this couldn't even be logged in the requirements.txt file because {str(_e)}", status=500, mimetype="text/plain");
+		print("Pipreqs dependencies-gathering encountered an error; " + str(_e).replace(r"\r\n", "\r\n"));
+		try: open(os.path.join(_appcode_package_folder, "requirements.txt"), "w", encoding="utf-8").write("Couldn't automatically generate requirements.txt, because... \n\n " + str(_e).replace(r"\r\n", "\r\n"));
+		except Exception as _e2: return flask.Response(f"`pipreqs` requirements.txt generation failed for {_appcode_package_folder}, and this couldn't even be logged in the requirements.txt file because {str(_e2)}. Original error: " + str(_e).replace(r"\r\n", "\r\n"), status=500, mimetype="text/plain");
 	
 	# ----------------------
 	# Create eponymous *.zip
