@@ -8,7 +8,7 @@
 	<script src="/resources/python-syntax-highlighting/highlight.min.js" />
 	<link rel="stylesheet" href="/resources/python-syntax-highlighting/vs.min.css" />
 	
-	<div id="task-ui-content-div" style="display: none;">
+	<div id="task-ui-content-div" style="display: none; height: 28rem;">
 		
 		<p class="off-grey">Which cells contain code needed for the app?</p>
 		

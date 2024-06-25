@@ -1,5 +1,5 @@
 
-This app-code was generated from a Databricks' Notebook, by `notebook-2-app` @ 2024-06-01 13:49:37.751808
+This app-code was generated from a Databricks' Notebook, by `notebook-2-app` @ 2024-06-24 22:34:56.795223
 
 To run locally:
 - Ensure a Python interpreter is installed on your system
