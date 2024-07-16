@@ -1,7 +1,7 @@
 # File:		code_generation.py - App-code functions imported by `server.py`
 # Author:	Ben Mullan 2024 for ((redacted)) 
 
-import sys, os, subprocess, shutil, json, re, datetime, random, string, urllib.request, flask;
+import os, json, re, datetime;
 from . import server_utils;
 
 @staticmethod
@@ -193,21 +193,23 @@ def get_regex_based_suggestions(_appcode_string) -> list[dict]:
 
 import dash;
 app = dash.Dash(__name__);
+
 app.layout = dash.html.Div(
-	[
-		dash.dcc.Markdown("**Application Title Here**"),
-		dash.dcc.Graph(figure=%s)
-	]
+    [
+        dash.dcc.Markdown("**Application Title Here**"),
+        dash.dcc.Graph(figure=%s)
+    ]
 );
+
 if __name__ == "__main__": app.run(debug=False);
 """;
 	
 	for _match in re.compile(r"\w+\.show\(\);?").finditer(_appcode_string):
 		_collected_suggestions.append(
 			{
-				"message"		: "`figure.show()` is not valid for hosted server-applications; replace with a call to the Dash server?",
+				"message"		: "⚠️ `figure.show()` is not valid for hosted server-applications; replace with a call to the Dash server?",
 				"target_range"	: {
-					"startLineNumber"	: _appcode_string[:_match.start()].count("\n"),
+					"startLineNumber"	: _appcode_string[:_match.start()].count("\n") + 1,
 					"startColumn"		: 0,
 					"endLineNumber"		: _appcode_string[:_match.start()].count("\n") + 1,
 					"endColumn"			: 100,
@@ -218,29 +220,29 @@ if __name__ == "__main__": app.run(debug=False);
 	
 	# --- 2 ---
 	# Replace hash-like API keys or other secrets, with a dotenv template
-	# `_match.group()` looks like e.g. `"dbapi23hkfis8732khfsahao09dhjhrsaf"`
+	# `_match.group()` looks like e.g. `"dbapi23hkfis8732khfsahalkjdshfi98jd"`
 	
 	_DOTENV_SOURCE = """
 # 👉 Move secrets into a seperate `.env` file!
 # ...whose contents looks like:
-# 	SECRET_ONE=%s
-# 	SECRET_TWO="my-very-secret-key-here"
+#     SECRET_ONE=%s
+#     SECRET_TWO="my-very-secret-key-here"
 
 import dotenv;
 dotenv.load_dotenv("./../secrets.env");
 
 class SECRETS:
-# Use in-place of string-literal secrets, via e.g. `SECRETS.SECRET_ONE()`
-SECRET_ONE	= lambda : os.environ["SECRET_ONE"];
-SECRET_TWO	= lambda : os.environ["SECRET_TWO"];
+    # Use in-place of string-literal secrets, via e.g. `SECRETS.SECRET_ONE()`
+    SECRET_ONE	= lambda : os.environ["SECRET_ONE"];
+    SECRET_TWO	= lambda : os.environ["SECRET_TWO"];
 """;
 	
-	for _match in re.compile("\"[\w\.\-@_:/\?]{25,}\"").finditer(_appcode_string):
+	for _match in re.compile("\"[\w\.\-@_:\?]{25,}\"").finditer(_appcode_string):
 		_collected_suggestions.append(
 			{
 				"message"		: "⚠️ API key or other sensitive access-code/URL potentially detected; replace with secure environment-variable-based system?",
 				"target_range"	: {
-					"startLineNumber"	: _appcode_string[:_match.start()].count("\n"),
+					"startLineNumber"	: _appcode_string[:_match.start()].count("\n") + 1,
 					"startColumn"		: 0,
 					"endLineNumber"		: _appcode_string[:_match.start()].count("\n") + 1,
 					"endColumn"			: 100,
@@ -249,6 +251,84 @@ SECRET_TWO	= lambda : os.environ["SECRET_TWO"];
 			}
 		);
 	
+	# --- 3 ---
+	# Replace files being read from the workspace, with a workspace-file-retrieval system.
+	# `_match.group()` looks like e.g. `po2_dataframe = pandas.read_csv("/Workspace/Users/ben.mullan@ ((redacted)) .co.uk/powers-of-two.csv");`
+
+	_PULL_WORKSPACE_FILE_SOURCE = """
+import io, urllib.request, json;
+
+class secrets:
+    # Put the secrets in a separate .env file, and read 'em in...
+    DATABRICKS_HOST            = lambda : "DATABRICKS_HOST";
+    DATABRICKS_ACCESS_TOKEN    = lambda : "DATABRICKS_ACCESS_TOKEN";
+
+
+def get_workspace_file_contents(_workspace_file_path):
+    '''
+        Downloads the raw text file contents,
+        from the databricks' workspace file-system.
+    
+        Eg: get_workspace_file_contents("/Workspace/misc/x-y-series.csv")
+    '''
+    
+    return make_databricks_api_request(
+        "/api/2.0/workspace/export",
+        json.dumps({{ "path" : _workspace_file_path, "format" : "SOURCE", "direct_download" : "true" }})
+    );
+
+
+def make_databricks_api_request(_api_path, _post_data) -> str:
+    '''
+        Authenticates and returns the string response
+        from the Databricks' API at _api_path.
+    '''
+
+    try:
+
+        _url = f"https://{{ secrets.DATABRICKS_HOST() }}{{_api_path}}";
+
+        _request = urllib.request.Request(
+            method  = "GET",
+            url     = _url,
+            data    = _post_data.encode("utf-8")
+        );
+        
+        _request.add_header("Authorization", f"Bearer {{ secrets.DATABRICKS_ACCESS_TOKEN() }}");
+        
+        _response = urllib.request.urlopen(_request);
+        return _response.read().decode("utf-8");
+        
+    except Exception as _request_exception:
+        raise Exception(f"The Databricks API Request failed, with error [{{str(_request_exception)}}]. URL: {{_url}}");
+
+
+# TODO: Specify correct DATABRICKS_ACCESS_TOKEN in .env file, for above `secrets` class
+# Generate access token: https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/pat#--azure-databricks-personal-access-tokens-for-workspace-users
+
+{0} = pandas.read_csv(
+    io.StringIO( get_workspace_file_contents({1}) ),
+    sep = ","
+);
+""";
+
+	for _match in re.compile(" *\w+ *= *\w+.\w+\(\n? *\"\/Workspace\/.*\"\n? *\);?").finditer(_appcode_string):
+		_collected_suggestions.append(
+			{
+				"message"				: "🛑 Notebook reliant on workspace file; insert code to remotely connect to workspace and retain data-connectivity?",
+				"target_range"			: {
+					"startLineNumber"	: _appcode_string[:_match.start()].count("\n"),
+					"startColumn"		: 0,
+					"endLineNumber"		: _appcode_string[:_match.end()].count("\n") + 1,
+					"endColumn"			: 100,
+				},
+				"replacement"			: _PULL_WORKSPACE_FILE_SOURCE.format(
+					_match.group().split("=")[0],
+					re.search("\".*\"", _match.group()).group()
+				),
+			}
+		);
+
 	return _collected_suggestions;
 
 

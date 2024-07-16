@@ -10,6 +10,7 @@ loosely-structured Python **notebook-style code**, into maintainable, modular, r
 
 This includes...
 - Specific notebook-only code substitutions, e.g. replacing `figure.show()` in a Dash app, with code to start a Dash server (`app = Dash()` ... `app.run()`)
+- Re-wiring the notebook to maintain data sources, if it reads data from a workspace file (e.g. `/Workspace/dir/data.csv`)
 - Identifying & removing _secrets_ (e.g. API keys) and placing them in a seperate `.env` file
 - Suggesting the insertion of proper documentation & commentry within the code
 - Moving pip dependancies into a centralised `requirements.txt` file
@@ -69,6 +70,7 @@ Simply download the resultant app-code package...
 ## To use this software...
 - Download [a `zip` of this repository](https://github.com/BenMullan/notebook-2-app/archive/refs/heads/main.zip)
 - Populate /backend/server_code/secrets.py with values for [your Databricks Workspace](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/auth/pat#--azure-databricks-personal-access-tokens-for-workspace-users)
+- Specify your COMPANY_EMAIL_ADDRESS_ENDING in /frontend/resources/js/task-ui-functions.js
 - Execute `python -m flask --app ./server.py run`
   <br/>(Can use `_debug.cmd` on Windows for local development/testing; runs SASS transpiler & starts server)
 

@@ -5,11 +5,11 @@
 
 <div class="task-ui-outer-div" data-task-number="3" data-task-title="Review App-code...">
 	
-	<div id="task-ui-content-div">
+	<div id="task-ui-content-div" style="height: 28rem;">
 		
 		<div id="tui-3-sidebar-and-editor-container">
 			<div id="tui-3-code-analytics-sidebar" class="accordion" />
-			<div id="tui-3-code-editor" />
+			<div id="tui-3-code-editor" style="display: none;" />
 		</div>
 		
 		<script>tui_3_show_initial_app_code();</script>

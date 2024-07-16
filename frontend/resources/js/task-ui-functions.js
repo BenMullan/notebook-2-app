@@ -5,6 +5,11 @@
 
 
 
+/* The address-ending used by directory-names in the
+Databricks' Workspace's `/Workspace/Users/` folder */
+const COMPANY_EMAIL_ADDRESS_ENDING = "@__fill_me_in__.co.uk";
+
+
 
 /*
 	task-ui-1-select-notebook.xml
@@ -39,7 +44,7 @@ function tui_1_show_workspace_contents() {
 					
 					// Initially, load the user's home dir.
 					// Then, the user can use the loaded hrefs to navigate upstream/downstream the Databricks' workspace
-					tui_1_load_databricks_dir_in_file_browser(`/Workspace/Users/${ $("#tui-1-databricks-username-textbox").val().trim() }@((redacted)).co.uk/`);
+					tui_1_load_databricks_dir_in_file_browser(`/Workspace/Users/${ $("#tui-1-databricks-username-textbox").val().trim() }${ COMPANY_EMAIL_ADDRESS_ENDING }/`);
 					
 				}
 			);			
@@ -356,7 +361,7 @@ function tui_3_show_initial_app_code() {
 
 function tui_3_render_appcode_into_editor(_appcode_string) {
 	
-	require.config({ paths : { "vs" : "https://unpkg.com/monaco-editor@latest/min/vs" }});
+	require.config({ paths : { "vs" : "https://unpkg.com/monaco-editor@latest/min/vs" } });
 	window.MonacoEnvironment = { getWorkerUrl : () => proxy };
 
 	let proxy = URL.createObjectURL(
@@ -391,6 +396,8 @@ function tui_3_render_appcode_into_editor(_appcode_string) {
 			"width"  : $(".task-box").css("max-width")
 		}
 	);
+
+	$("#tui-3-code-editor").fadeIn("fast");
 	
 }
 
