@@ -1,7 +1,6 @@
 # `notebook-2-app`...
 ...is a foolproof web-based **databricks-notebook** to **web-application** conversion platform.
-
-Watch the [notebook-2-app Youtube Video](https://www.youtube.com/watch?v=djbnArkbJso)!
+> Watch the **[notebook-2-app Youtube Video](https://www.youtube.com/watch?v=djbnArkbJso)**!
 
 <img src="https://github.com/BenMullan/notebook-2-app/blob/main/frontend/resources/images/n2a-screenshots/notebook-deployment-pipeline.png?raw=true" width="100%" />
 
